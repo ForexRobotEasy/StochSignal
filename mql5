@@ -1,0 +1,59 @@
+
+//+------------------------------------------------------------------+
+//|                                              StochSignal.mq5     |
+//|                       Copyright 2022, Forex Robot Easy Team       |
+//|                                              forexroboteasy.com   |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Add initialization code here
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add deinitialization code here
+}
+
+//+------------------------------------------------------------------+
+//| Expert start function                                            |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Get stochastic indicator values
+    double main[], signal[];
+    CopyBuffer(0, 0, 0, 1, main);
+    CopyBuffer(1, 0, 0, 1, signal);
+    
+    // Check for trade signals
+    if(main[0] > signal[0])
+    {
+        // Generate buy signal
+        Print('Buy signal detected!');
+        // Add code to execute buy trade here
+    }
+    else if(main[0] < signal[0])
+    {
+        // Generate sell signal
+        Print('Sell signal detected!');
+        // Add code to execute sell trade here
+    }
+    else
+    {
+        // No trade signal
+        Print('No trade signal detected.');
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Other necessary functions and variables                           |
+//+------------------------------------------------------------------+
+// Add any additional necessary functions and variables here
